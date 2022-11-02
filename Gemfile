@@ -3,8 +3,9 @@ source "https://rubygems.org"
 # Run Jekyll with `bundle exec jekyll serve`
 
 gem "jekyll", "~> 4.3.1"
-gem "jekyll-theme-dinky"
-
-group :jekyll_plugins do
-  gem "jekyll-feed", "~> 0.17.0"
-end
+git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
+gem 'jekyll-feed'
+gem 'jekyll-readme-index'
+gem 'jemoji'
+gem 'webrick'
+gem "jekyll-remote-theme"
