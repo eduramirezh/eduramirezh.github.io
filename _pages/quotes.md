@@ -5,6 +5,11 @@ layout: post
 
 Interesting quotes I've ran into.
 
+
+> Omit needless words! Omit needless words! Omit needless words!
+>
+> -- <cite>William Strunk</cite>
+
 > Formal authority is the weakest form of power, and you should resort to using it rarely.
 - [Source](https://charity.wtf/2020/09/06/if-management-isnt-a-promotion-then-engineering-isnt-a-demotion/)
 
