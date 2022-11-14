@@ -34,8 +34,26 @@
 
                 <div class="body-inner">
                     {%- include body.html -%}
-                    <div id="osmdContainer"/>
 
+                    {% if page.sheet_music %}
+                    <div id="osmdContainer"/>
+                    <script src="{{site.baseurl}}/assets/opensheetmusicdisplay.min.js"></script>
+                    <script>
+                      var osmd = new opensheetmusicdisplay.OpenSheetMusicDisplay("osmdContainer");
+                      osmd.setOptions({
+                        backend: "svg",
+                        drawTitle: true,
+                        // drawingParameters: "compacttight" // don't display title, composer etc., smaller margins
+                      });
+                      osmd
+                        .load("{{ page.sheet_music }}")
+                        .then(
+                          function() {
+                            osmd.render();
+                          }
+                        );
+                    </script>
+                    {% endif %}
 
                     {% if page.previous %}
                         <a href="{{site.baseurl}}{{page.previous.url}}" class="navigation navigation-prev navigation-unique" aria-label="Previous page: {{page.previous.title}}">
@@ -66,20 +84,5 @@
         {%- include footer.html -%}
 
     </body>
-    <script src="opensheetmusicdisplay.min.js"></script>
-    <script>
-      var osmd = new opensheetmusicdisplay.OpenSheetMusicDisplay("osmdContainer");
-      osmd.setOptions({
-        backend: "svg",
-        drawTitle: true,
-        // drawingParameters: "compacttight" // don't display title, composer etc., smaller margins
-      });
-      osmd
-        .load("http://downloads2.makemusic.com/musicxml/MozaVeilSample.xml")
-        .then(
-          function() {
-            osmd.render();
-          }
-        );
-    </script>
+
 </html>
