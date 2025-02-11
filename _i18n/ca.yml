@@ -1,0 +1,10 @@
+global:
+  english: Anglès
+  spanish: Espanyol
+  catalan: Català
+  about: Sobre mi
+  blog: Blog
+titles:
+  home: Inici
+  about: Sobre Mi
+  blog: Articles

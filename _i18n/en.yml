@@ -1,0 +1,10 @@
+global:
+  english: English
+  spanish: Spanish
+  catalan: Catalan
+  about: About
+  blog: Blog
+titles:
+  home: Home
+  about: About Me
+  blog: Blog Posts
