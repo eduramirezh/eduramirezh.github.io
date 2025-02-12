@@ -1,11 +1,43 @@
 <!DOCTYPE html>
-<html lang="{% raw %}{{ page.lang | default: site.lang | default: 'en' }}{% endraw %}">
-  {% raw %}{% include head.html %}{% endraw %}
+<html lang="{{ site.active_lang | default: site.default_lang | default: 'en' }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {%- seo -%}
+    <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+    {%- feed_meta -%}
+  </head>
   <body>
-    {% raw %}{% include header.html %}{% endraw %}
-    <main class="container">
-      {% raw %}{{ content }}{% endraw %}
+    <header>
+      <nav>
+        <a href="{{ "/" | relative_url }}" class="site-title">{{ site.title }}</a>
+        <div class="nav-links">
+          {% for lang in site.languages %}
+            {% if lang == site.active_lang %}
+              <span class="active-lang">{{ site.data[lang].global[lang] }}</span>
+            {% else %}
+              <a href="{% if lang == site.default_lang %}{{ page.url }}{% else %}/{{ lang }}{{ page.url }}{% endif %}" class="lang-link">
+                {{ site.data[lang].global[lang] }}
+              </a>
+            {% endif %}
+          {% endfor %}
+          <a href="{{ site.baseurl }}/about/" class="nav-link">{% t global.about %}</a>
+          <a href="{{ site.baseurl }}/blog/" class="nav-link">{% t global.blog %}</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      {{ content }}
     </main>
-    {% raw %}{% include footer.html %}{% endraw %}
+
+    <footer>
+      <div class="footer-content">
+        <p>{{ site.title }}</p>
+        {% if site.email %}
+          <p><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+        {% endif %}
+      </div>
+    </footer>
   </body>
 </html>

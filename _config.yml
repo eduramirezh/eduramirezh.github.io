@@ -1,5 +1,7 @@
 title: Eduardo Ramirez
 email: contact@eduramirez.com
+description: >-
+  Personal blog and portfolio
 baseurl: ""
 url: "https://eduramirez.com"
 
@@ -15,25 +17,24 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
+# Show post excerpts on the home page
+show_excerpts: true
+
 # Allow custom HTML in posts
 kramdown:
   input: GFM
   syntax_highlighter: rouge
   parse_block_html: true
 
-
-# Add to your existing _config.yml
-permalink: /:categories/:year/:month/:day/:title/
-
-defaults:
-  - scope:
-      path: ""
-    values:
-      layout: "default"
-  - scope:
-      path: "_posts"
-    values:
-      layout: "post"
-
-sass:
-  style: compressed
+# Exclude files from processing
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
