@@ -20,3 +20,20 @@ kramdown:
   input: GFM
   syntax_highlighter: rouge
   parse_block_html: true
+
+
+# Add to your existing _config.yml
+permalink: /:categories/:year/:month/:day/:title/
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+  - scope:
+      path: "_posts"
+    values:
+      layout: "post"
+
+sass:
+  style: compressed

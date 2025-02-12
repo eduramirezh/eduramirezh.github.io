@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="{% raw %}{{ page.lang | default: site.lang | default: 'en' }}{% endraw %}">
+  {% raw %}{% include head.html %}{% endraw %}
+  <body>
+    {% raw %}{% include header.html %}{% endraw %}
+    <main class="container">
+      {% raw %}{{ content }}{% endraw %}
+    </main>
+    {% raw %}{% include footer.html %}{% endraw %}
+  </body>
+</html>
