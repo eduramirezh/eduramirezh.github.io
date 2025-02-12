@@ -49,4 +49,5 @@ git push origin gh-pages
 echo "Switching back to $current_branch branch..."
 git checkout $current_branch
 
+
 echo "Deployment complete!"
