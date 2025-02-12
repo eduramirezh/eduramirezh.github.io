@@ -1,4 +1,25 @@
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Eduardo Ramirez - Software Engineer</title>
-<link rel="stylesheet" href="{% raw %}{{ '/assets/css/main.css' | relative_url }}{% endraw %}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Title and basic SEO -->
+  <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+
+  <!-- Language alternates -->
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  {% for lang in site.languages %}
+    {% if lang == site.active_lang %}
+      <link rel="alternate" hreflang="{{ lang }}" href="{{ site.url }}{{ page.url }}" />
+    {% else %}
+      <link rel="alternate" hreflang="{{ lang }}" href="{{ site.url }}/{{ lang }}{{ page.url }}" />
+    {% endif %}
+  {% endfor %}
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+
+  <!-- Feed and SEO tag -->
+  {% feed_meta %}
+  {% seo title=false %}
+</head>

@@ -1,0 +1,43 @@
+<nav class="nav" aria-label="Main navigation">
+  <div class="container nav__content">
+    <a href="{{ '/' | relative_url }}" class="nav__logo" aria-label="Home">
+      edu.ramirez
+    </a>
+
+    <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu">
+      <span class="nav__toggle-icon"></span>
+    </button>
+
+    <ul id="nav-menu" class="nav__links">
+      <li>
+        <a href="{{ '/' | relative_url }}"
+           class="nav__link {% if page.url == '/' %}nav__link--active{% endif %}">
+          {% t global.home %}
+        </a>
+      </li>
+      <li>
+        <a href="{{ '/blog' | relative_url }}"
+           class="nav__link {% if page.url contains '/blog' %}nav__link--active{% endif %}">
+          {% t global.blog %}
+        </a>
+      </li>
+      <li>
+        <a href="{{ '/about' | relative_url }}"
+           class="nav__link {% if page.url contains '/about' %}nav__link--active{% endif %}">
+          {% t global.about %}
+        </a>
+      </li>
+      <li>
+        {% include language-switcher.html %}
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<script>
+  document.querySelector('.nav__toggle').addEventListener('click', function() {
+    const expanded = this.getAttribute('aria-expanded') === 'true';
+    this.setAttribute('aria-expanded', !expanded);
+    document.getElementById('nav-menu').classList.toggle('nav__links--visible');
+  });
+</script>

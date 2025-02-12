@@ -1,5 +1,38 @@
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Eduardo Ramirez</p>
-        </div>
-    </footer>
+<footer class="footer">
+  <div class="container footer__content">
+    <div class="footer__main">
+      <div class="footer__branding">
+        <h2 class="footer__title">{{ site.title }}</h2>
+        <p class="footer__description">{{ site.description }}</p>
+      </div>
+
+      <div class="footer__social">
+        <a href="https://github.com/eduramirezh"
+           class="social-link"
+           aria-label="GitHub Profile"
+           target="_blank"
+           rel="noopener noreferrer">
+          GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/eduramirez"
+           class="social-link"
+           aria-label="LinkedIn Profile"
+           target="_blank"
+           rel="noopener noreferrer">
+          LinkedIn
+        </a>
+        <a href="mailto:{{ site.email }}"
+           class="social-link"
+           aria-label="Email">
+          Email
+        </a>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p class="footer__copyright">
+        &copy; {{ 'now' | date: "%Y" }} {{ site.title }}. {% t global.rights_reserved %}
+      </p>
+    </div>
+  </div>
+</footer>

@@ -4,6 +4,8 @@ global:
   catalan: Catalan
   about: About
   blog: Blog
+  home: Home
+  rights_reserved: All rights reserved
 titles:
   home: Home
   about: About Me
