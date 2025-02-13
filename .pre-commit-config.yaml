@@ -1,0 +1,64 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+      - id: mixed-line-ending
+        args: [ --fix=lf ]
+      - id: check-case-conflict
+      - id: detect-private-key
+
+  - repo: https://github.com/jumanjihouse/pre-commit-hooks
+    rev: 3.0.0
+    hooks:
+      - id: shellcheck
+        files: ^scripts/.*\.sh$
+      - id: shfmt
+        files: ^scripts/.*\.sh$
+
+  - repo: https://github.com/codespell-project/codespell
+    rev: v2.2.6
+    hooks:
+      - id: codespell
+        args: [ --ignore-words=.codespell-ignore ]
+        exclude: >
+          (?x)^(
+            .*\.lock|
+            \.git/.*|
+            _site/.*
+          )$
+
+  - repo: local
+    hooks:
+      - id: jekyll-build
+        name: Build Jekyll site
+        entry: bundle exec jekyll build
+        language: ruby
+        pass_filenames: false
+        types: [ ruby, markdown, html, yaml ]
+        additional_dependencies: [ 'jekyll' ]
+
+      - id: rubocop
+        name: Check Ruby style
+        entry: bundle exec rubocop -A
+        language: ruby
+        types: [ ruby ]
+        additional_dependencies: [ 'rubocop' ]
+
+      - id: htmlproofer
+        name: Check HTML
+        entry: bundle exec htmlproofer ./_site --disable-external
+        language: ruby
+        pass_filenames: false
+        types: [ html ]
+        additional_dependencies: [ 'html-proofer' ]
+
+      - id: claude-sync
+        name: Sync with Claude
+        entry: claudesync push
+        language: system
+        pass_filenames: false
+        always_run: true

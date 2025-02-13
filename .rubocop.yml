@@ -1,0 +1,28 @@
+require: rubocop-jekyll
+
+inherit_gem:
+  rubocop-jekyll: .rubocop.yml
+
+AllCops:
+  TargetRubyVersion: 3.3
+  NewCops: enable
+  Exclude:
+    - '_site/**/*'
+    - 'vendor/**/*'
+    - 'node_modules/**/*'
+    - '.git/**/*'
+    - 'bin/**/*'
+
+Layout/LineLength:
+  Max: 100
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: always
+
+Metrics/BlockLength:
+  Exclude:
+    - '*.gemspec'
+    - 'spec/**/*'
