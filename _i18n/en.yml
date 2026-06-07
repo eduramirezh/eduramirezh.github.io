@@ -10,3 +10,5 @@ titles:
   home: Home
   about: About Me
   blog: Blog Posts
+blog:
+  empty: No posts yet — check back soon.

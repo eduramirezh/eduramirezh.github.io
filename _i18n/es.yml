@@ -10,3 +10,5 @@ titles:
   home: Inicio
   about: Sobre Mí
   blog: Artículos
+blog:
+  empty: Aún no hay artículos — vuelve pronto.

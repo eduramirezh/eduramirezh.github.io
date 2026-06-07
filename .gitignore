@@ -6,3 +6,4 @@ vendor
 .idea
 .claudesync
 venv
+.DS_Store
