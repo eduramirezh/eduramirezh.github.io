@@ -55,10 +55,3 @@ repos:
         pass_filenames: false
         types: [ html ]
         additional_dependencies: [ 'html-proofer' ]
-
-      - id: claude-sync
-        name: Sync with Claude
-        entry: claudesync push
-        language: system
-        pass_filenames: false
-        always_run: true

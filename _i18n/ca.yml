@@ -10,3 +10,5 @@ titles:
   home: Inici
   about: Sobre Mi
   blog: Articles
+blog:
+  empty: Encara no hi ha articles — torna aviat.
